@@ -10,3 +10,14 @@ export default function App({ Component, pageProps }: AppProps) {
     </SessionContextProvider>
   )
 }
+
+async function signInWithGitHub() {
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'github',
+  })
+}
+
+
+async function signout() {
+  const { error } = await supabase.auth.signOut()
+}
